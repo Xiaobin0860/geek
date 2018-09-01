@@ -10,8 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :geek, GeekWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4020],
-  url: [host: "example.com", port: 80],
+  http: [port: System.get_env("PORT") || 4020],
+  #url: [host: "localhost", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
