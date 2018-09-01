@@ -17,6 +17,11 @@ defmodule GeekWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+  end
+
+  scope "/wx", GeekWeb do
+    pipe_through :browser # Use the default browser stack
+
     resources "/admins", AdminController
   end
 
