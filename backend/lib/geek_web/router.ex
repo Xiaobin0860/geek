@@ -17,6 +17,7 @@ defmodule GeekWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/admins", AdminController
   end
 
   # Other scopes may use custom stacks.
