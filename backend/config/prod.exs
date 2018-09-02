@@ -14,7 +14,7 @@ config :geek, GeekWeb.Endpoint,
   url: [host: "login.uxibang.net", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
-  static_url: [host: "login.uxibang.net", path: "/wx"],
+  static_url: [scheme: "http", host: "login.uxibang.net", path: "/wx"],
   version: Application.spec(:geek, :vsn)
 
 # Do not print debug messages in production
