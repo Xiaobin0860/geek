@@ -11,9 +11,11 @@ use Mix.Config
 # before starting your production server.
 config :geek, GeekWeb.Endpoint,
   http: [port: System.get_env("PORT") || 4020],
-  #url: [host: "localhost", port: 80],
+  url: [host: "localhost", port: System.get_env("PORT") || 4020],
+  cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  root: ".",
+  version: Application.spec(:geek, :vsn)
 
 # Do not print debug messages in production
 config :logger, level: :info
