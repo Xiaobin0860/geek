@@ -11,6 +11,7 @@ config :geek, GeekWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
+  static_url: [path: "/wx"],
   watchers: [node: ["node_modules/webpack/bin/webpack.js", "--mode", "development", "--watch-stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 

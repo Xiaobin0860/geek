@@ -11,10 +11,10 @@ use Mix.Config
 # before starting your production server.
 config :geek, GeekWeb.Endpoint,
   http: [port: System.get_env("PORT") || 4020],
-  url: [host: "localhost", port: System.get_env("PORT") || 4020],
+  url: [host: "login.uxibang.net", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
-  root: ".",
+  static_url: [host: "login.uxibang.net", path: "/wx"],
   version: Application.spec(:geek, :vsn)
 
 # Do not print debug messages in production

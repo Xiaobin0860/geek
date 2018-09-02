@@ -4,6 +4,7 @@ use Mix.Config
 # you can enable the server option below.
 config :geek, GeekWeb.Endpoint,
   http: [port: 4021],
+  static_url: [path: "/wx"],
   server: false
 
 # Print only warnings and errors during test
