@@ -26,7 +26,9 @@ defmodule GeekWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GeekWeb do
-  #   pipe_through :api
-  # end
+  scope "/wx/api", GeekWeb do
+    pipe_through :api
+    
+    resources "/users", UserController, except: [:new, :edit]
+  end
 end
