@@ -19,6 +19,6 @@ defmodule Geek.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:openid, :account, :passhash, :uuid, :nick, :phone, :gender, :avatar])
-    |> validate_required([:openid, :account, :passhash, :uuid, :nick, :phone, :gender, :avatar])
+    |> validate_required([:openid])
   end
 end

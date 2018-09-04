@@ -20,7 +20,7 @@ defmodule Geek.MixProject do
   def application do
     [
       mod: {Geek.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :httpotion]
     ]
   end
 
@@ -42,6 +42,7 @@ defmodule Geek.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:distillery, "~> 2.0"},
+      {:httpotion, "~> 3.1.0"},
       {:cowboy, "~> 1.0"}
     ]
   end

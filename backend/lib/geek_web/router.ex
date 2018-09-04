@@ -30,5 +30,6 @@ defmodule GeekWeb.Router do
     pipe_through :api
     
     resources "/users", UserController, except: [:new, :edit]
+    post "/login", WxController, :login
   end
 end
