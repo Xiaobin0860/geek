@@ -1,6 +1,8 @@
 //app.js
+const api = require('./utils/api.js')
+
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -11,19 +13,10 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res)
-        wx.request({
-          url: this.globalData.serverUrl+'/login',
-          method: 'POST',
-          data: {
-            code: res.code
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            console.log(res)
-          }
-        })
+        api.login(res.code, (data) => {
+          this.globalData.id = data.id
+          if (this.globalData.userInfo) this.updateUser()
+        });
       }
     })
     // 获取用户信息
@@ -34,7 +27,10 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
+              console.log(res)
+
               this.globalData.userInfo = res.userInfo
+              if (this.globalData.id) this.updateUser()
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -47,8 +43,13 @@ App({
       }
     })
   },
+  updateUser: function() {
+    api.update(this.globalData.id, this.globalData.userInfo, data => {
+      console.log(data)
+    })
+  },
   globalData: {
     userInfo: null,
-    serverUrl: "http://localhost:4020/wx/api"
+    id: 0
   }
 })

@@ -31,5 +31,6 @@ defmodule GeekWeb.Router do
     
     resources "/users", UserController, except: [:new, :edit]
     post "/login", WxController, :login
+    post "/update", WxController, :update
   end
 end

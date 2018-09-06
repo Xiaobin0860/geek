@@ -29,4 +29,12 @@ defmodule GeekWeb.WxController do
 
     render(conn, "login.json", user: user)
   end
+
+  def update(conn, %{"id" => id, "user" => attrs}) do
+    user = Accounts.get_user!(id)
+
+    with {:ok, %User{} = user} <- Accounts.update_user(user, attrs) do
+      render(conn, "show.json", user: user)
+    end
+  end
 end
