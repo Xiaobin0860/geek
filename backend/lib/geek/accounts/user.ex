@@ -4,21 +4,19 @@ defmodule Geek.Accounts.User do
 
 
   schema "users" do
-    field :account, :string
-    field :avatar, :string
-    field :gender, :integer
-    field :nick, :string
-    field :openid, :string
-    field :passhash, :string
-    field :phone, :string
-    field :uuid, :string
+    field :avatar, :string, default: ""
+    field :gender, :integer, default: 0
+    field :nick, :string, default: ""
+    field :openid, :string, default: ""
+    field :phone, :string, default: ""
 
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:openid, :account, :passhash, :uuid, :nick, :phone, :gender, :avatar])
+    |> cast(attrs, [:openid, :nick, :avatar, :gender, :phone])
     |> validate_required([:openid])
+    |> unique_constraint(:openid)
   end
 end

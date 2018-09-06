@@ -4,9 +4,9 @@ defmodule GeekWeb.UserControllerTest do
   alias Geek.Accounts
   alias Geek.Accounts.User
 
-  @create_attrs %{account: "some account", avatar: "some avatar", gender: 42, nick: "some nick", openid: "some openid", passhash: "some passhash", phone: "some phone", uuid: "some uuid"}
-  @update_attrs %{account: "some updated account", avatar: "some updated avatar", gender: 43, nick: "some updated nick", openid: "some updated openid", passhash: "some updated passhash", phone: "some updated phone", uuid: "some updated uuid"}
-  @invalid_attrs %{account: nil, avatar: nil, gender: nil, nick: nil, openid: nil, passhash: nil, phone: nil, uuid: nil}
+  @create_attrs %{avatar: "some avatar", gender: 42, nick: "some nick", openid: "some openid", phone: "some phone"}
+  @update_attrs %{avatar: "some updated avatar", gender: 43, nick: "some updated nick", openid: "some updated openid", phone: "some updated phone"}
+  @invalid_attrs %{avatar: nil, gender: nil, nick: nil, openid: nil, phone: nil}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)
@@ -32,14 +32,11 @@ defmodule GeekWeb.UserControllerTest do
       conn = get conn, Routes.user_path(conn, :show, id)
       assert json_response(conn, 200)["data"] == %{
         "id" => id,
-        "account" => "some account",
         "avatar" => "some avatar",
         "gender" => 42,
         "nick" => "some nick",
         "openid" => "some openid",
-        "passhash" => "some passhash",
-        "phone" => "some phone",
-        "uuid" => "some uuid"}
+        "phone" => "some phone"}
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -58,14 +55,11 @@ defmodule GeekWeb.UserControllerTest do
       conn = get conn, Routes.user_path(conn, :show, id)
       assert json_response(conn, 200)["data"] == %{
         "id" => id,
-        "account" => "some updated account",
         "avatar" => "some updated avatar",
         "gender" => 43,
         "nick" => "some updated nick",
         "openid" => "some updated openid",
-        "passhash" => "some updated passhash",
-        "phone" => "some updated phone",
-        "uuid" => "some updated uuid"}
+        "phone" => "some updated phone"}
     end
 
     test "renders errors when data is invalid", %{conn: conn, user: user} do

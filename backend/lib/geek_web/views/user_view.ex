@@ -13,12 +13,9 @@ defmodule GeekWeb.UserView do
   def render("user.json", %{user: user}) do
     %{id: user.id,
       openid: user.openid,
-      account: user.account,
-      passhash: user.passhash,
-      uuid: user.uuid,
       nick: user.nick,
-      phone: user.phone,
+      avatar: user.avatar,
       gender: user.gender,
-      avatar: user.avatar}
+      phone: user.phone}
   end
 end
