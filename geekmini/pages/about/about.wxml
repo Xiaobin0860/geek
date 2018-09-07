@@ -1,0 +1,4 @@
+<view class="container">
+  <image src="../../imgs/geek.jpg" mode="cover"></image>
+  <label>极客加软件开发工作室</label>
+</view>

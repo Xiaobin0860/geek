@@ -1,0 +1,4 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <label>Hello World</label>
+</view>
