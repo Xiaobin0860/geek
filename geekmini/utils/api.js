@@ -16,13 +16,17 @@ const login = (code, cb) => {
   })
 }
 
-const update = (id, attrs, cb) => {
+const update = (id, info, cb) => {
   wx.request({
     url: SERVER_URL + '/update',
     method: 'POST',
     data: {
       id: id,
-      user: attrs
+      user: {
+        avatar: info.avatarUrl,
+        nick: info.nickName,
+        gender: info.gender
+      }
     },
     header: {
       'content-type': 'application/json' // 默认值
