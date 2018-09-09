@@ -5,7 +5,7 @@ defmodule Geek.Admins do
 
   import Ecto.Query, warn: false
   alias Geek.Repo
-
+  alias Comeonin.Pbkdf2, as: PassHash
   alias Geek.Admins.Admin
 
   @doc """
@@ -36,6 +36,27 @@ defmodule Geek.Admins do
 
   """
   def get_admin!(id), do: Repo.get!(Admin, id)
+
+  # Returns nil if no result was found. Raises
+  def get_admin_by_account(account) do
+    query = from(a in Admin, where: a.account == ^account)
+    Repo.one(query)
+  end
+
+  def auth(account, passowrd) do
+    account
+    |> get_admin_by_account()
+    |> check_password(passowrd)
+  end
+
+  defp check_password(nil, _), do: {:error, "Incorrect account or password"}
+
+  defp check_password(admin, passowrd) do
+    case PassHash.checkpw(passowrd, admin.passhash) do
+      true -> {:ok, admin}
+      false -> {:error, "Incorrect account or password"}
+    end
+  end
 
   @doc """
   Creates a admin.

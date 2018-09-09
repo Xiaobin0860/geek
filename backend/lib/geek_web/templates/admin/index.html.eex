@@ -1,26 +1,23 @@
-<h1>Listing Admins</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Account</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for admin <- @admins do %>
-    <tr>
-      <td><%= admin.account %></td>
-
-      <td>
-        <%= link "Show", to: Routes.admin_path(@conn, :show, admin) %>
-        <%= link "Edit", to: Routes.admin_path(@conn, :edit, admin) %>
-        <%= link "Delete", to: Routes.admin_path(@conn, :delete, admin), method: :delete, data: [confirm: "Are you sure?"] %>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Admin", to: Routes.admin_path(@conn, :new) %></span>
+<div class="jumbotron">
+  <h2>Login Page</h2>
+  <%= if @maybe_admin == nil do %>
+    <%= form_for @changeset, @action, fn f -> %>
+    <div class="form-group">
+      <%= label f, :account, class: "control-label" %>
+      <%= text_input f, :account, class: "control-label" %>
+      <%= error_tag f, :account %>
+    </div>
+    <div class="form-group">
+      <%= label f, :password, class: "control-label" %>
+      <%= text_input f, :password, class: "control-label" %>
+      <%= error_tag f, :password %>
+    </div>
+    <div class="form-group">
+      <%= submit "Submit", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  <% else %>
+    <hi>Hello <%= @maybe_admin.account %>!</h1>
+    <span><%= link "Logout", to: Routes.admin_path(@conn, :logout), method: :post %></span>
+  <% end %>
+</div>

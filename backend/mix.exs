@@ -45,6 +45,7 @@ defmodule Geek.MixProject do
       {:httpotion, "~> 3.1.0"},
       {:comeonin, "~> 4.0"},
       {:pbkdf2_elixir, "~> 0.12"},
+      {:guardian, "~> 1.0"},
       {:cowboy, "~> 1.0"}
     ]
   end

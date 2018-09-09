@@ -19,3 +19,7 @@ config :geek, Geek.Repo,
   pool: Ecto.Adapters.SQL.Sandbox
 
 config :pbkdf2_elixir, :rounds, 1
+
+config :geek, Geek.Admins.Guardian,
+  issuer: "geek",
+  secret_key: "VkFxEk8UPsXxVy/OgychA5VSVQvpylluRgpwNQge64DWODrmCrfT8H3AC0CKWDZB"

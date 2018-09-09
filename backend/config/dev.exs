@@ -12,8 +12,15 @@ config :geek, GeekWeb.Endpoint,
   code_reloader: true,
   check_origin: false,
   static_url: [path: "/wx"],
-  watchers: [node: ["node_modules/webpack/bin/webpack.js", "--mode", "development", "--watch-stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: [
+    node: [
+      "node_modules/webpack/bin/webpack.js",
+      "--mode",
+      "development",
+      "--watch-stdin",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+  ]
 
 # ## SSL Support
 #
@@ -67,3 +74,7 @@ config :geek, Geek.Repo,
   database: "geek_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :geek, Geek.Admins.Guardian,
+  issuer: "geek",
+  secret_key: "VkFxEk8UPsXxVy/OgychA5VSVQvpylluRgpwNQge64DWODrmCrfT8H3AC0CKWDZB"

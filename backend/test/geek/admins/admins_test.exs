@@ -37,6 +37,7 @@ defmodule Geek.AdminsTest do
       assert {:ok, %Admin{} = admin} = Admins.create_admin(@valid_attrs)
       assert admin.account == "some account"
       assert true == Admin.check_password(admin, @valid_attrs.password)
+      assert {:ok, %Admin{}} = Admins.auth(@valid_attrs.account, @valid_attrs.password)
     end
 
     test "create_admin/1 with invalid data returns error changeset" do
@@ -48,12 +49,14 @@ defmodule Geek.AdminsTest do
       assert {:ok, %Admin{} = admin} = Admins.update_admin(admin, @update_attrs)
       assert @update_attrs.account == admin.account
       assert true == Admin.check_password(admin, @update_attrs.password)
+      assert {:ok, %Admin{}} = Admins.auth(@update_attrs.account, @update_attrs.password)
     end
 
     test "update_admin/2 with invalid data returns error changeset" do
       admin = admin_fixture()
       assert {:error, %Ecto.Changeset{}} = Admins.update_admin(admin, @invalid_attrs)
       assert true == Admin.check_password(admin, @valid_attrs.password)
+      assert {:ok, %Admin{}} = Admins.auth(@valid_attrs.account, @valid_attrs.password)
     end
 
     test "delete_admin/1 deletes the admin" do

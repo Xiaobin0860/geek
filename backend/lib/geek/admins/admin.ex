@@ -1,7 +1,7 @@
 defmodule Geek.Admins.Admin do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Comeonin.Pbkdf2, as: Pass
+  alias Comeonin.Pbkdf2, as: PassHash
 
   schema "admins" do
     field(:account, :string)
@@ -19,7 +19,7 @@ defmodule Geek.Admins.Admin do
     |> put_passhash()
   end
 
-  def check_password(admin, password), do: Pass.checkpw(password, admin.passhash)
+  def check_password(admin, password), do: PassHash.checkpw(password, admin.passhash)
 
   defp put_passhash(changeset) do
     case changeset do
@@ -27,7 +27,7 @@ defmodule Geek.Admins.Admin do
         put_change(
           changeset,
           :passhash,
-          Pass.hashpwsalt(pass)
+          PassHash.hashpwsalt(pass)
         )
 
       _ ->
