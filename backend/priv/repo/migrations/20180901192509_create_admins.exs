@@ -3,10 +3,11 @@ defmodule Geek.Repo.Migrations.CreateAdmins do
 
   def change do
     create table(:admins) do
-      add :account, :string
-      add :passhash, :string
+      add :account, :string, null: false, default: ""
+      add :passhash, :string, null: false, default: ""
 
     end
 
+    create unique_index(:admins, [:account])
   end
 end

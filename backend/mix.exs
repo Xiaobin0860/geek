@@ -43,6 +43,8 @@ defmodule Geek.MixProject do
       {:jason, "~> 1.0"},
       {:distillery, "~> 2.0"},
       {:httpotion, "~> 3.1.0"},
+      {:comeonin, "~> 4.0"},
+      {:pbkdf2_elixir, "~> 0.12"},
       {:cowboy, "~> 1.0"}
     ]
   end

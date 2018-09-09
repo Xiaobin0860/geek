@@ -1,18 +1,37 @@
 defmodule Geek.Admins.Admin do
   use Ecto.Schema
   import Ecto.Changeset
-
+  alias Comeonin.Pbkdf2, as: Pass
 
   schema "admins" do
-    field :account, :string
-    field :passhash, :string
-
+    field(:account, :string)
+    field(:passhash, :string)
+    field(:password, :string, virtual: true)
   end
 
   @doc false
   def changeset(admin, attrs) do
     admin
-    |> cast(attrs, [:account, :passhash])
-    |> validate_required([:account, :passhash])
+    |> cast(attrs, [:account, :passhash, :password])
+    |> validate_required([:account, :password])
+    |> validate_length(:account, min: 3, max: 20)
+    |> validate_length(:password, min: 3, max: 20)
+    |> put_passhash()
+  end
+
+  def check_password(admin, password), do: Pass.checkpw(password, admin.passhash)
+
+  defp put_passhash(changeset) do
+    case changeset do
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
+        put_change(
+          changeset,
+          :passhash,
+          Pass.hashpwsalt(pass)
+        )
+
+      _ ->
+        changeset
+    end
   end
 end

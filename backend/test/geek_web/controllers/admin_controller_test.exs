@@ -3,9 +3,9 @@ defmodule GeekWeb.AdminControllerTest do
 
   alias Geek.Admins
 
-  @create_attrs %{account: "some account", passhash: "some passhash"}
-  @update_attrs %{account: "some updated account", passhash: "some updated passhash"}
-  @invalid_attrs %{account: nil, passhash: nil}
+  @create_attrs %{account: "some account", password: "some pass"}
+  @update_attrs %{account: "some updated account", password: "some updated pass"}
+  @invalid_attrs %{account: nil, password: nil}
 
   def fixture(:admin) do
     {:ok, admin} = Admins.create_admin(@create_attrs)

@@ -17,3 +17,5 @@ config :geek, Geek.Repo,
   database: "geek_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :pbkdf2_elixir, :rounds, 1

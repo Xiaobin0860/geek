@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Account</th>
-      <th>Passhash</th>
 
       <th></th>
     </tr>
@@ -13,7 +12,6 @@
 <%= for admin <- @admins do %>
     <tr>
       <td><%= admin.account %></td>
-      <td><%= admin.passhash %></td>
 
       <td>
         <%= link "Show", to: Routes.admin_path(@conn, :show, admin) %>

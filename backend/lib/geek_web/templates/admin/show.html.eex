@@ -7,11 +7,6 @@
     <%= @admin.account %>
   </li>
 
-  <li>
-    <strong>Passhash:</strong>
-    <%= @admin.passhash %>
-  </li>
-
 </ul>
 
 <span><%= link "Edit", to: Routes.admin_path(@conn, :edit, @admin) %></span>

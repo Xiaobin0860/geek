@@ -11,15 +11,14 @@ defmodule GeekWeb.WxView do
   end
 
   def render("user.json", %{user: user}) do
-    %{id: user.id,
+    %{
+      id: user.id,
       openid: user.openid,
-      account: user.account,
-      passhash: user.passhash,
-      uuid: user.uuid,
       nick: user.nick,
       phone: user.phone,
       gender: user.gender,
-      avatar: user.avatar}
+      avatar: user.avatar
+    }
   end
 
   def render("login.json", %{user: user}) do
