@@ -33,6 +33,7 @@ defmodule GeekWeb.Router do
     pipe_through([:browser, :auth])
 
     get("/admins", AdminController, :index)
+    post("/admins", AdminController, :create)
     post("/admins/login", AdminController, :login)
     post("/admins/logout", AdminController, :logout)
   end
@@ -42,7 +43,7 @@ defmodule GeekWeb.Router do
     pipe_through([:browser, :auth, :ensure_auth])
 
     get("/admins/list", AdminController, :list)
-    resources("/admins", AdminController, except: [:index])
+    resources("/admins", AdminController, except: [:index, :create])
   end
 
   # Other scopes may use custom stacks.
