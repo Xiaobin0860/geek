@@ -50,7 +50,12 @@ defmodule GeekWeb.AdminController do
 
   def show(conn, %{"id" => id}) do
     admin = Admins.get_admin!(id)
-    render(conn, "show.html", admin: admin)
+    Logger.debug("show id=#{id}")
+
+    case get_format(conn) do
+      "json" -> render(conn, "show.json", admin: admin)
+      _ -> render(conn, "show.html", admin: admin)
+    end
   end
 
   def edit(conn, %{"id" => id}) do
@@ -87,15 +92,38 @@ defmodule GeekWeb.AdminController do
     {:ok, admin} = Admins.auth(account, password)
     Logger.debug("#{admin.account} auth ok")
 
-    conn
-    |> put_flash(:success, "Welcom back!")
-    |> Guardian.Plug.sign_in(admin)
-    |> redirect(to: Routes.admin_path(conn, :list))
+    case get_format(conn) do
+      "json" ->
+        {:ok, token, _claims} = Guardian.encode_and_sign(admin)
+        # |> Guardian.Plug.sign_in(admin)
+        render(conn, "login.json", token: token, admin: admin)
+
+      _ ->
+        conn
+        |> put_flash(:success, "Welcom back!")
+        |> Guardian.Plug.sign_in(admin)
+        |> redirect(to: Routes.admin_path(conn, :list))
+    end
   end
 
   def logout(conn, _) do
-    conn
-    |> Guardian.Plug.sign_out()
-    |> redirect(to: Routes.admin_path(conn, :index))
+    case get_format(conn) do
+      "json" ->
+        admin = Guardian.Plug.current_resource(conn)
+        token = Guardian.Plug.current_token(conn)
+        Logger.debug("#{admin.account} logout, revoke token#{token}")
+        Guardian.revoke(token)
+        render(conn, "logout.json", admin: admin)
+
+      _ ->
+        conn
+        |> Guardian.Plug.sign_out()
+        |> redirect(to: Routes.admin_path(conn, :index))
+    end
+  end
+
+  def info(conn, _) do
+    admin = Guardian.Plug.current_resource(conn)
+    render(conn, "show.json", admin: admin)
   end
 end
