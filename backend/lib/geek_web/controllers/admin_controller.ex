@@ -79,7 +79,7 @@ defmodule GeekWeb.AdminController do
 
     conn
     |> put_flash(:info, "Admin deleted successfully.")
-    |> redirect(to: Routes.admin_path(conn, :index))
+    |> redirect(to: Routes.admin_path(conn, :list))
   end
 
   def login(conn, %{"admin" => %{"account" => account, "password" => password}}) do

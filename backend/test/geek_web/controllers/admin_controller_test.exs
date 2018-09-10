@@ -117,7 +117,7 @@ defmodule GeekWeb.AdminControllerTest do
     test "deletes chosen admin", %{conn: conn, admin: admin} do
       conn = post(conn, Routes.admin_path(conn, :login), admin: @create_attrs)
       conn = delete(conn, Routes.admin_path(conn, :delete, admin))
-      assert redirected_to(conn) == Routes.admin_path(conn, :index)
+      assert redirected_to(conn) == Routes.admin_path(conn, :list)
 
       assert_error_sent(404, fn ->
         get(conn, Routes.admin_path(conn, :show, admin))
