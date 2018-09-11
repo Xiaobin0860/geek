@@ -16,14 +16,14 @@ Page({
     canIUseClipboard: wx.canIUse('setClipboardData'),
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   copyCode: function() {
     wx.setClipboardData({
       data: code,
-      success: function () {
+      success: function() {
         wx.showToast({
           title: '复制成功',
         })
@@ -57,4 +57,3 @@ Page({
   },
 
 })
-

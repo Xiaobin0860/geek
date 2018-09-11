@@ -10,7 +10,7 @@ Page({
     imagePath: '',
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
 
     const {
       fileID,
