@@ -1,12 +1,7 @@
 {
   "cloud": true,
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
+    "pages/home/home",
     "pages/chooseLib/chooseLib"
   ],
   "window": {
