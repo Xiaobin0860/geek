@@ -26,8 +26,8 @@
 
 .m-menu image {
   display: block;
-  width: 58rpx;
-  height: 58rpx;
+  width: 90rpx;
+  height: 90rpx;
   margin: 0 auto;
   margin-bottom: 12rpx;
 }

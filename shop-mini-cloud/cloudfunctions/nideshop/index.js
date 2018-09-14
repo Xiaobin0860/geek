@@ -1,6 +1,10 @@
 // 云函数入口文件
 const login = require('login')
 const home = require('home')
+const topic = require('topic')
+const catalog = require('catalog')
+const goods = require('goods')
+const cart = require('cart')
 const cloud = require('wx-server-sdk')
 
 cloud.init({
@@ -20,6 +24,18 @@ exports.main = async(event, context) => {
       break
     case 'IndexUrl':
       data = home.index()
+      break
+    case 'TopicList':
+      data = topic.list(event.data)
+      break
+    case 'CatalogList':
+      data = catalog.index()
+      break
+    case 'GoodsCount':
+      data = goods.count()
+      break
+    case 'CartList':
+      data = cart.index()
       break
     default:
       break
