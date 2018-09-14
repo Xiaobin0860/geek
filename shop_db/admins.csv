@@ -1,0 +1,2 @@
+﻿id,username,password,password_salt,last_login_ip,last_login_time,add_time,update_time,avatar,admin_role_id
+1,admin,bb87bf23d14b27de74530dec20e234f3,ABCDEF,::ffff:127.0.0.1,1505484711,0,0,'',0

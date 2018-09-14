@@ -1,0 +1,6 @@
+﻿id,name,url,icon_url,sort_order
+1,居家,/pages/category/category?id=1005000,https://yanxuan.nosdn.127.net/8319d7be7b6c4f1654535aa9c80931b5.png?quality=95&thumbnail=180y180&imageView,1
+2,餐厨,/pages/category/category?id=1005001,https://yanxuan.nosdn.127.net/04763003a311710e58da2539bf573949.png?quality=95&thumbnail=180x180&imageView,2
+3,配件,/pages/category/category?id=1008000,https://yanxuan.nosdn.127.net/ab6edd7c4b43af5a7a23042724885279.png?imageView&quality=95&thumbnail=180x180,3
+4,服装,/pages/category/category?id=1005002,https://yanxuan.nosdn.127.net/3be2fa9dd99671671033af74613f9b86.png?quality=95&thumbnail=180x180&imageView,4
+5,志趣,/pages/category/category?id=1019000,https://yanxuan.nosdn.127.net/d24153224ada180cfdbee03a34a0d6df.png?quality=95&thumbnail=180x180&imageView,5

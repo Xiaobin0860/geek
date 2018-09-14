@@ -1,0 +1,1 @@
+﻿id,order_sn,user_id,order_status,shipping_status,pay_status,consignee,country,province,city,district,address,mobile,postscript,shipping_fee,pay_name,pay_id,actual_price,integral,integral_money,order_price,goods_price,add_time,confirm_time,pay_time,freight_price,coupon_id,parent_id,coupon_price,callback_status
