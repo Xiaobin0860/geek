@@ -12,14 +12,17 @@ module.exports = {
 
   //GoodsCount: ApiRootUrl + 'goods/count', //统计商品总数
   GoodsCount: 'GoodsCount',
-  GoodsList: ApiRootUrl + 'goods/list', //获得商品列表
-  GoodsCategory: ApiRootUrl + 'goods/category', //获得分类数据
+  //GoodsList: ApiRootUrl + 'goods/list', //获得商品列表
+  GoodsList: 'GoodsList',
+  //GoodsCategory: ApiRootUrl + 'goods/category', //获得分类数据
+  GoodsCategory: 'GoodsCategory',
   GoodsDetail: ApiRootUrl + 'goods/detail', //获得商品的详情
   GoodsNew: ApiRootUrl + 'goods/new', //新品
   GoodsHot: ApiRootUrl + 'goods/hot', //热门
   GoodsRelated: ApiRootUrl + 'goods/related', //商品详情页的关联商品（大家都在看）
 
-  BrandList: ApiRootUrl + 'brand/list', //品牌列表
+  //BrandList: ApiRootUrl + 'brand/list', //品牌列表
+  BrandList: 'BrandList',
   BrandDetail: ApiRootUrl + 'brand/detail', //品牌详情
 
   //CartList: ApiRootUrl + 'cart/index', //获取购物车的数据

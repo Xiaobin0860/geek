@@ -5,6 +5,7 @@ const topic = require('topic')
 const catalog = require('catalog')
 const goods = require('goods')
 const cart = require('cart')
+const brand = require('brand')
 const cloud = require('wx-server-sdk')
 
 cloud.init({
@@ -34,8 +35,17 @@ exports.main = async(event, context) => {
     case 'GoodsCount':
       data = goods.count()
       break
+    case 'GoodsCategory':
+      data = goods.category(event.data)
+      break
+    case 'GoodsList':
+      data = goods.list(event.data)
+      break
     case 'CartList':
       data = cart.index()
+      break
+    case 'BrandList':
+      data = brand.list(event.data)
       break
     default:
       break
