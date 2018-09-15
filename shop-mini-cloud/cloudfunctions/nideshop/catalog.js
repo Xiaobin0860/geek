@@ -28,6 +28,27 @@ index = async() => {
   }
 }
 
+current = async(p) => {
+  const categoryId = p.id
+  const categories = await db.collection('categories').where({
+    'id': categoryId
+  }).get()
+  let currentCategory = categories.data[0]
+  // 获取子分类数据
+  subcategories = await db.collection('categories').where({
+    'parent_id': currentCategory.id
+  }).get()
+  currentCategory.subCategoryList = subcategories.data
+
+  return {
+    errno: 0,
+    data: {
+      currentCategory: currentCategory
+    }
+  }
+}
+
 module.exports = {
-  index
+  index,
+  current
 }

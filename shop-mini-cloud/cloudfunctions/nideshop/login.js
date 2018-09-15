@@ -9,7 +9,7 @@ login_by_weixin = async(openid, data) => {
   console.log('\nlogin_by_weixin: user=', user)
 
   try {
-    result = await db.collection('users').where({
+    let result = await db.collection('users').where({
       openid: openid
     }).get()
     if (result.data.length === 0) {

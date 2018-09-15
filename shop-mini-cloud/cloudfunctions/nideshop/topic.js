@@ -24,6 +24,36 @@ list = async(p) => {
   }
 }
 
+detail = async(p) => {
+  const topics = await db.collection('topics').where({
+    id: p.id
+  }).get();
+  return {
+    errno: 0,
+    data: {
+      data: topics.data[0]
+    }
+  }
+}
+
+related = async() => {
+  const topics = await db.collection('topics').field({
+    id: true,
+    title: true,
+    price_info: true,
+    scene_pic_url: true,
+    subtitle: true
+  }).limit(4).get();
+  return {
+    errno: 0,
+    data: {
+      data: topics.data
+    }
+  }
+}
+
 module.exports = {
-  list
+  list,
+  detail,
+  related
 }

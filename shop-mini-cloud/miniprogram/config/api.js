@@ -5,7 +5,8 @@ module.exports = {
   IndexUrl: 'IndexUrl', //首页数据接口
   //CatalogList: ApiRootUrl + 'catalog/index', //分类目录全部分类数据接口
   CatalogList: 'CatalogList',
-  CatalogCurrent: ApiRootUrl + 'catalog/current', //分类目录当前分类数据接口
+  //CatalogCurrent: ApiRootUrl + 'catalog/current', //分类目录当前分类数据接口
+  CatalogCurrent: 'CatalogCurrent',
 
   //AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
   AuthLoginByWeixin: "AuthLoginByWeixin",
@@ -43,35 +44,43 @@ module.exports = {
   OrderSubmit: ApiRootUrl + 'order/submit', // 提交订单
   PayPrepayId: ApiRootUrl + 'pay/prepay', //获取微信统一下单prepay_id
 
-  CollectList: ApiRootUrl + 'collect/list', //收藏列表
+  // CollectList: ApiRootUrl + 'collect/list', //收藏列表
+  CollectList: 'CollectList',
   CollectAddOrDelete: ApiRootUrl + 'collect/addordelete', //添加或取消收藏
 
-  CommentList: ApiRootUrl + 'comment/list', //评论列表
-  CommentCount: ApiRootUrl + 'comment/count', //评论总数
+  //CommentList: ApiRootUrl + 'comment/list', //评论列表
+  CommentList: 'CommentList',
+  // CommentCount: ApiRootUrl + 'comment/count', //评论总数
+  CommentCount: 'CommentCount',
   CommentPost: ApiRootUrl + 'comment/post', //发表评论
 
   //TopicList: ApiRootUrl + 'topic/list',  //专题列表
   TopicList: 'TopicList',
-  TopicDetail: ApiRootUrl + 'topic/detail', //专题详情
-  TopicRelated: ApiRootUrl + 'topic/related', //相关专题
+  //TopicDetail: ApiRootUrl + 'topic/detail', //专题详情
+  TopicDetail: 'TopicDetail',
+  //TopicRelated: ApiRootUrl + 'topic/related', //相关专题
+  TopicRelated: 'TopicRelated',
 
   SearchIndex: ApiRootUrl + 'search/index', //搜索页面数据
   SearchResult: ApiRootUrl + 'search/result', //搜索数据
   SearchHelper: ApiRootUrl + 'search/helper', //搜索帮助
   SearchClearHistory: ApiRootUrl + 'search/clearhistory', //搜索帮助
 
-  AddressList: ApiRootUrl + 'address/list', //收货地址列表
+  //AddressList: ApiRootUrl + 'address/list', //收货地址列表
+  AddressList: 'AddressList',
   AddressDetail: ApiRootUrl + 'address/detail', //收货地址详情
   AddressSave: ApiRootUrl + 'address/save', //保存收货地址
   AddressDelete: ApiRootUrl + 'address/delete', //保存收货地址
 
   RegionList: ApiRootUrl + 'region/list', //获取区域列表
 
-  OrderList: ApiRootUrl + 'order/list', //订单列表
+  //OrderList: ApiRootUrl + 'order/list', //订单列表
+  OrderList: 'OrderList',
   OrderDetail: ApiRootUrl + 'order/detail', //订单详情
   OrderCancel: ApiRootUrl + 'order/cancel', //取消订单
   OrderExpress: ApiRootUrl + 'order/express', //物流详情
 
-  FootprintList: ApiRootUrl + 'footprint/list', //足迹列表
+  //FootprintList: ApiRootUrl + 'footprint/list', //足迹列表
+  FootprintList: 'FootprintList',
   FootprintDelete: ApiRootUrl + 'footprint/delete', //删除足迹
 };
