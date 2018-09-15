@@ -4,8 +4,7 @@ cloud.init({
 })
 const db = cloud.database()
 
-index = async() => {
-
+get_carts = async() => {
   const cartList = await db.collection('carts').get()
   // 获取购物车统计信息
   let goodsCount = 0
@@ -30,19 +29,34 @@ index = async() => {
   }
 
   return {
+    cartList: cartList.data,
+    cartTotal: {
+      goodsCount: goodsCount,
+      goodsAmount: goodsAmount,
+      checkedGoodsCount: checkedGoodsCount,
+      checkedGoodsAmount: checkedGoodsAmount
+    }
+  }
+}
+
+index = async() => {
+  return {
+    errno: 0,
+    data: await get_carts()
+  }
+}
+
+count = async() => {
+  const cartData = await get_carts();
+  return {
     errno: 0,
     data: {
-      cartList: cartList.data,
-      cartTotal: {
-        goodsCount: goodsCount,
-        goodsAmount: goodsAmount,
-        checkedGoodsCount: checkedGoodsCount,
-        checkedGoodsAmount: checkedGoodsAmount
-      }
+      cartTotal: cartData.cartTotal
     }
   }
 }
 
 module.exports = {
-  index
+  index,
+  count
 }

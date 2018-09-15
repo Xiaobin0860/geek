@@ -16,14 +16,19 @@ module.exports = {
   GoodsList: 'GoodsList',
   //GoodsCategory: ApiRootUrl + 'goods/category', //获得分类数据
   GoodsCategory: 'GoodsCategory',
-  GoodsDetail: ApiRootUrl + 'goods/detail', //获得商品的详情
-  GoodsNew: ApiRootUrl + 'goods/new', //新品
-  GoodsHot: ApiRootUrl + 'goods/hot', //热门
-  GoodsRelated: ApiRootUrl + 'goods/related', //商品详情页的关联商品（大家都在看）
+  //GoodsDetail: ApiRootUrl + 'goods/detail', //获得商品的详情
+  GoodsDetail: 'GoodsDetail',
+  //GoodsNew: ApiRootUrl + 'goods/new', //新品
+  GoodsNew: 'GoodsNew',
+  //GoodsHot: ApiRootUrl + 'goods/hot', //热门
+  GoodsHot: 'GoodsHot',
+  //GoodsRelated: ApiRootUrl + 'goods/related', //商品详情页的关联商品（大家都在看）
+  GoodsRelated: 'GoodsRelated',
 
   //BrandList: ApiRootUrl + 'brand/list', //品牌列表
   BrandList: 'BrandList',
-  BrandDetail: ApiRootUrl + 'brand/detail', //品牌详情
+  //BrandDetail: ApiRootUrl + 'brand/detail', //品牌详情
+  BrandDetail: 'BrandDetail',
 
   //CartList: ApiRootUrl + 'cart/index', //获取购物车的数据
   CartList: 'CartList',
@@ -31,7 +36,8 @@ module.exports = {
   CartUpdate: ApiRootUrl + 'cart/update', // 更新购物车的商品
   CartDelete: ApiRootUrl + 'cart/delete', // 删除购物车的商品
   CartChecked: ApiRootUrl + 'cart/checked', // 选择或取消选择商品
-  CartGoodsCount: ApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
+  //CartGoodsCount: ApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
+  CartGoodsCount: 'CartGoodsCount',
   CartCheckout: ApiRootUrl + 'cart/checkout', // 下单前信息确认
 
   OrderSubmit: ApiRootUrl + 'order/submit', // 提交订单

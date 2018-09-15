@@ -27,6 +27,18 @@ list = async(p) => {
   }
 }
 
+detail = async (p) => {
+  const brands = await db.collection('brands').where({id: p.id}).get()
+
+  return {
+    errno: 0,
+    data: {
+      brand: brands.data[0]
+    }
+  }
+}
+
 module.exports = {
-  list
+  list,
+  detail
 }

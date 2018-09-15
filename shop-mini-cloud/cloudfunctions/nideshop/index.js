@@ -41,11 +41,29 @@ exports.main = async(event, context) => {
     case 'GoodsList':
       data = goods.list(event.data)
       break
+    case 'GoodsNew':
+      data = goods.lnew(event.data)
+      break
+    case 'GoodsHot':
+      data = goods.lhot(event.data)
+      break
+    case 'GoodsDetail':
+      data = goods.detail(event.data)
+      break
+    case 'GoodsRelated':
+      data = goods.related(event.data)
+      break
     case 'CartList':
       data = cart.index()
       break
+    case 'CartGoodsCount':
+      data = cart.count()
+      break
     case 'BrandList':
       data = brand.list(event.data)
+      break
+    case 'BrandDetail':
+      data = brand.detail(event.data)
       break
     default:
       break
