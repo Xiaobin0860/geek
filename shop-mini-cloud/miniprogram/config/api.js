@@ -33,10 +33,13 @@ module.exports = {
 
   //CartList: ApiRootUrl + 'cart/index', //获取购物车的数据
   CartList: 'CartList',
-  CartAdd: ApiRootUrl + 'cart/add', // 添加商品到购物车
+  //CartAdd: ApiRootUrl + 'cart/add', // 添加商品到购物车
+  CartAdd: 'CartAdd',
   CartUpdate: ApiRootUrl + 'cart/update', // 更新购物车的商品
-  CartDelete: ApiRootUrl + 'cart/delete', // 删除购物车的商品
-  CartChecked: ApiRootUrl + 'cart/checked', // 选择或取消选择商品
+  //CartDelete: ApiRootUrl + 'cart/delete', // 删除购物车的商品
+  CartDelete: 'CartDelete',
+  //CartChecked: ApiRootUrl + 'cart/checked', // 选择或取消选择商品
+  CartChecked: 'CartChecked',
   //CartGoodsCount: ApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
   CartGoodsCount: 'CartGoodsCount',
   CartCheckout: ApiRootUrl + 'cart/checkout', // 下单前信息确认

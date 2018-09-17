@@ -70,6 +70,15 @@ exports.main = async(event, context) => {
     case 'CartList':
       data = cart.index()
       break
+    case 'CartAdd':
+      data = cart.add(event.data)
+      break
+    case 'CartDelete':
+      data = cart.del(event.data)
+      break
+    case 'CartChecked':
+      data = cart.checked(event.data)
+      break
     case 'CartGoodsCount':
       data = cart.count()
       break

@@ -30,7 +30,7 @@ category = async(p) => {
   const brotherCategory = await db.collection('categories').where({
     parent_id: ccategory.parent_id
   }).get()
-  bcategory = brotherCategory.data[0]
+  bcategory = brotherCategory.data
 
   return {
     errno: 0,
